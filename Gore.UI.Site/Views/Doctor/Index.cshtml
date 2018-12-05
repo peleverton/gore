@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Gore.Application.ViewModels.DoctorViewModel>
+
+@{
+    ViewData["Title"] = "Médicos cadastrados!";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            <div class="pull-left">
+                <a asp-action="Create" class="btn btn-primary">
+                    <span title="Register New" class="glyphicon glyphicon-plus-sign"></span> Novo Registro
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <div class="esh-orders">
+        <div class="container">
+
+            <article class="esh-orders-titles row">
+                <section class="esh-orders-title col-xs-2">Nome</section>
+                <section class="esh-orders-title col-xs-1">CRM</section>
+                <section class="esh-orders-title col-xs-1">CPF</section>
+                <section class="esh-orders-title col-xs-2">Email</section>
+                <section class="esh-orders-title col-xs-2">Data de Nascimento</section>
+                <section class="esh-orders-title col-xs-2">Telefone</section>
+
+            </article>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    <article class="esh-orders-items row">
+                        <section class="esh-orders-item col-xs-3">@Html.DisplayFor(modelItem => item.Person.FirstName) @Html.DisplayFor(modelItem => item.Person.LastName)</section>
+                        <section class="esh-orders-item col-xs-1">@Html.DisplayFor(modelItem => item.CRM)</section>
+                        <section class="esh-orders-item col-xs-1">@Html.DisplayFor(modelItem => item.Person.CPF)</section>
+                        <section class="esh-orders-item col-xs-2">@Html.DisplayFor(modelItem => item.Person.Email)</section>
+                        <section class="esh-orders-item col-xs-2">@Html.DisplayFor(modelItem => item.Person.DateOfBirth)</section>
+                        <section class="esh-orders-item col-xs-2">@Html.DisplayFor(modelItem => item.Person.Phone)</section>
+                    </article>
+                    <a asp-action="Edit" asp-route-id="@item.DoctorId" title="Edit" class="btn btn-warning">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.DoctorId"
+                       title="Delete" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                }
+            }
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="panel panel-default">
+        <table class="table table-striped">
+            <thead >
+                <tr class="esh-orders-titles row">
+                    <th class="esh-orders-title col-xs-2">
+                        @Html.DisplayNameFor(model => model.Person.FirstName)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="esh-orders-items row">
+                        <td class="esh-orders-item col-xs-3">
+                            @Html.DisplayFor(modelItem => item.Person.FirstName)
+                        </td>
+                        <td class="esh-orders-item col-xs-3">
+                            <a asp-action="Edit" asp-route-id="@item.DoctorId" title="Edit" class="btn btn-warning">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.DoctorId"
+                               title="Delete" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+﻿@model Gore.Application.ViewModels.DoctorViewModel
+
+@{
+    ViewData["Title"] = "Registre um novo Médico";
+}
+
+
+<hr />
+<div class="row">
+    @Html.Partial("_StatusMessage", @ViewData["Sucesso"])
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+
+            <div class="form-group">
+                <label asp-for="personViewModel.FirstName" class="control-label"></label>
+                <input asp-for="personViewModel.FirstName" class="form-control" />
+                <span asp-validation-for="personViewModel.FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="personViewModel.LastName" class="control-label"></label>
+                <input asp-for="personViewModel.LastName" class="form-control" />
+                <span asp-validation-for="personViewModel.LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="personViewModel.CPF" class="control-label"></label>
+                <input asp-for="personViewModel.CPF" class="form-control" />
+                <span asp-validation-for="personViewModel.CPF" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="personViewModel.Email" class="control-label"></label>
+                <input asp-for="personViewModel.Email" class="form-control" />
+                <span asp-validation-for="personViewModel.Email" class="text-danger"></span>
+            </div>
+            @*<p>Date: <input type="text" id="datepicker"></p>*@
+          
+            <div class="form-group">
+                <label asp-for="personViewModel.DateOfBirth"></label>
+                <input asp-for="personViewModel.DateOfBirth" class="form-control" />
+                <span asp-validation-for="personViewModel.DateOfBirth" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="personViewModel.Phone" class="control-label"></label>
+                <input asp-for="personViewModel.Phone" class="form-control" />
+                <span asp-validation-for="personViewModel.Phone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border" style="align-content:center;">Endereço</legend>
+                    <div class="form-group">
+                        <label asp-for="personViewModel.AddressView.State" class="control-label">Estado</label>
+                        <input asp-for="personViewModel.AddressView.State" class="form-control" />
+                        <span asp-validation-for="personViewModel.AddressView.State" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="personViewModel.AddressView.City" class="control-label">Cidade</label>
+                        <input asp-for="personViewModel.AddressView.City" class="form-control" />
+                        <span asp-validation-for="personViewModel.AddressView.City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="personViewModel.AddressView.Street" class="control-label">Rua</label>
+                        <input asp-for="personViewModel.AddressView.Street" class="form-control" />
+                        <span asp-validation-for="personViewModel.AddressView.Street" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="personViewModel.AddressView.Complement" class="control-label">Complemento</label>
+                        <input asp-for="personViewModel.AddressView.Complement" class="form-control" />
+                        <span asp-validation-for="personViewModel.AddressView.Complement" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="personViewModel.AddressView.Cep" class="control-label" ></label>
+                        <input asp-for="personViewModel.AddressView.Cep" class="form-control" />
+                        <span asp-validation-for="personViewModel.AddressView.Cep" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="personViewModel.AddressView.Number" class="control-label">Número</label>
+                        <input asp-for="personViewModel.AddressView.Number" class="form-control" />
+                        <span asp-validation-for="personViewModel.AddressView.Number" class="text-danger"></span>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="form-group">
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border" style="align-content:center;">Tipo Sanguíneo</legend>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label asp-for="personViewModel.BloodTypeView" class="control-label">Tipo Sanguíneo</label>
+                            <select asp-for="personViewModel.BloodTypeView" asp-items="ViewBag.bloodTypes">
+                                <option>Please select one</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <label asp-for="CRM" class="control-label"></label>
+                <input asp-for="CRM" class="form-control" />
+                <span asp-validation-for="CRM" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <a asp-action="Index" class="btn btn-info">Back to List</a>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $(".datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                showOtherMonths: true,
+                selectOtherMonths: true
+            });
+        });
+    </script> 
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

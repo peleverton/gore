@@ -1,0 +1,27 @@
+﻿@model Gore.Application.ViewModels.BloodTypeViewModel
+
+@{
+    ViewData["Title"] = "Tipos sanguineo!";
+}
+
+<div>
+    <h2>@ViewData["Title"]</h2>
+</div>
+<hr />
+
+<form asp-action="Delete" asp-route-id="@Model.BloodTypeId">
+    <h3>Are you sure you want to delete the  @Model.BloodTypeDescription?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Model.BloodTypeDescription
+            </dt>
+        </dl>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-info">Back to List</a>
+        </div>
+    </div>
+</form>

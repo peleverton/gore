@@ -1,0 +1,37 @@
+﻿@model Gore.Application.ViewModels.BloodTypeViewModel
+
+@{
+    ViewData["Title"] = "Registre o tipo sanguineo";
+}
+
+<hr />
+<div class="row">
+    @Html.Partial("_StatusMessage", @ViewData["Sucesso"])
+
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div class="form-group row">
+                <label asp-for="BloodTypeDescription" class="col-sm-2 col-form-label" style="padding-top:10px;">Descrição:</label>
+                <div class="col-sm-10">
+                    <input asp-for="BloodTypeDescription" class="form-control" />
+                    <span asp-validation-for="BloodTypeDescription" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <a asp-action="Index" class="btn btn-info">Back to List</a>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
