@@ -45,13 +45,13 @@ namespace Gore.UI.Site.Controllers
         //Get: Doctor/Create
         public IActionResult Create()
         {
-            DoctorViewModel doc = new DoctorViewModel();
-            doc.personViewModel = new PersonViewModel {
-                AddressView = new AddressViewModel()
-            };
-            doc.personViewModel.AddressView = _apiClientService.GetCepAsync("03657065").Result;
+            //DoctorViewModel doc = new DoctorViewModel();
+            //doc.personViewModel = new PersonViewModel {
+            //    AddressView = new AddressViewModel()
+            //};
+            //doc.personViewModel.AddressView = _apiClientService.GetCepAsync("03657065").Result;
             ViewBag.bloodTypes = new SelectList(_bloodTypeAppService.GetAll(), "BloodTypeId", "BloodTypeDescription");
-            return View(doc);
+            return View();
         }
 
         // POST: Doctor/Create

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Gore.Domain.Models
@@ -43,6 +45,10 @@ namespace Gore.Domain.Models
         public string LastName { get; private set; }
         public long CPF { get; private set; }
         public string Email { get; private set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayName("Data Nascimento")]
         public DateTime DateOfBirth { get; private set; }
         public int Phone { get; private set; }
         public int AddressId { get; set; }

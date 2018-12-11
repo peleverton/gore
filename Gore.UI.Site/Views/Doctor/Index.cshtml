@@ -4,86 +4,148 @@
     ViewData["Title"] = "Médicos cadastrados!";
 }
 
-<div class="row">
+<div class="content-wrapper main-body">
+
     <div class="col-md-12">
-        <div>
-            <div class="pull-left">
-                <a asp-action="Create" class="btn btn-primary">
-                    <span title="Register New" class="glyphicon glyphicon-plus-sign"></span> Novo Registro
-                </a>
+        <div class="content-wrapper main-body">
+            <div>
+                <div class="pull-left">
+                    <a asp-action="Create" class="btn btn-primary">
+                        <span title="Register New" class="glyphicon glyphicon-plus-sign"></span> Novo Registro
+                    </a>
+                </div>
             </div>
-        </div>
-    </div>
+            <br />
+            <br />
+            <!-- Breadcrumb-->
+            <!-- Main content -->
+            <section class="content">
+                <!-- Main row -->
+                <div class="row panel panel-default">
+                    <!-- Left col -->
+                    <section class="col-lg-12 connectedSortable">
+                        @*<div class="box box-info">
+                            <div class="">
+                        *@
+                        @* <div class="box-header">
+                                                                <div class="box-tools pull-right">
+                                                                    <button class="btn bg-teal btn-sm btn-small-miya" data-widget="collapse"><i class="fa fa-plus"></i></button>
+                                <button class="btn bg-teal btn-sm btn-small-miya" data-widget="remove"><i class="fa fa-times"></i></button>
+                                    </div>
+                            </div>
+                                            <div class="box-body">
+                        *@
+                        <div class="nav-tabs-custom">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th scope="col" style="width: 30%;">Nome</th>
+                                        <th scope="col">CRM</th>
+                                        <th scope="col">CPF</th>
+                                        <th scope="col" style="width: 10%;">E-mail</th>
+                                        <th scope="col" style="width: 5%;">Nascimento</th>
+                                        <th scope="col">Telefone</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model != null && Model.Any())
+                                    {
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <div class="box box-header collapsed-box">
+                                                        <div class="box-header pull-left">
+                                                            <div class="box-tools">
+                                                                <button class="btn bg-teal btn-sm btn-small-miya pull-right" data-widget="collapse"><i class="fa fa-plus"></i></button>
+                                                            </div>
+                                                        </div>
 
-    <br />
-    <br />
-    <br />
-    <div class="esh-orders">
-        <div class="container">
+                                                        <div class="box-body">
+                                                            <table class="table table-sm">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col" style="width: 30%;">Cidade</th>
 
-            <article class="esh-orders-titles row">
-                <section class="esh-orders-title col-xs-2">Nome</section>
-                <section class="esh-orders-title col-xs-1">CRM</section>
-                <section class="esh-orders-title col-xs-1">CPF</section>
-                <section class="esh-orders-title col-xs-2">Email</section>
-                <section class="esh-orders-title col-xs-2">Data de Nascimento</section>
-                <section class="esh-orders-title col-xs-2">Telefone</section>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            @Html.DisplayFor(modelItem => item.Person.Address.City)
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Person.FirstName) @Html.DisplayFor(modelItem => item.Person.LastName)
+                                                </td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.CRM)</td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.Person.CPF)</td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.Person.Email)</td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.Person.DateOfBirth)</td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.Person.Phone)</td>
+                                                <td>
+                                                    <a asp-action="Edit" asp-route-id="@item.DoctorId" title="Edit" class="btn btn-warning">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a asp-action="Delete" asp-route-id="@item.DoctorId"
+                                                       title="Delete" class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            @* <tr>
+                                                <td>
+                                                    <div>
+                                                      <div class="box box-header collapsed-box">
+                                                            <div class="box-header">
+                                                                    <div class="box-tools pull-right">
+                                                                        <button class="btn bg-teal btn-sm btn-small-miya pull-right" data-widget="collapse"><i class="fa fa-plus"></i></button>
+                                                                    </div>
+                                                                </div>*@<!-- /.box-header -->
+                                            @*<div class="box-body">
+                                                    <table class="table table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col" style="width: 30%;">Cidade</th>
 
-            </article>
-            @if (Model != null && Model.Any())
-            {
-                @foreach (var item in Model)
-                {
-                    <article class="esh-orders-items row">
-                        <section class="esh-orders-item col-xs-3">@Html.DisplayFor(modelItem => item.Person.FirstName) @Html.DisplayFor(modelItem => item.Person.LastName)</section>
-                        <section class="esh-orders-item col-xs-1">@Html.DisplayFor(modelItem => item.CRM)</section>
-                        <section class="esh-orders-item col-xs-1">@Html.DisplayFor(modelItem => item.Person.CPF)</section>
-                        <section class="esh-orders-item col-xs-2">@Html.DisplayFor(modelItem => item.Person.Email)</section>
-                        <section class="esh-orders-item col-xs-2">@Html.DisplayFor(modelItem => item.Person.DateOfBirth)</section>
-                        <section class="esh-orders-item col-xs-2">@Html.DisplayFor(modelItem => item.Person.Phone)</section>
-                    </article>
-                    <a asp-action="Edit" asp-route-id="@item.DoctorId" title="Edit" class="btn btn-warning">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </a>
-                    <a asp-action="Delete" asp-route-id="@item.DoctorId"
-                       title="Delete" class="btn btn-danger">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </a>
-                }
-            }
-        </div>
-    </div>
-    <br />
-    <br />
-    <div class="panel panel-default">
-        <table class="table table-striped">
-            <thead >
-                <tr class="esh-orders-titles row">
-                    <th class="esh-orders-title col-xs-2">
-                        @Html.DisplayNameFor(model => model.Person.FirstName)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr class="esh-orders-items row">
-                        <td class="esh-orders-item col-xs-3">
-                            @Html.DisplayFor(modelItem => item.Person.FirstName)
-                        </td>
-                        <td class="esh-orders-item col-xs-3">
-                            <a asp-action="Edit" asp-route-id="@item.DoctorId" title="Edit" class="btn btn-warning">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                            </a>
-                            <a asp-action="Delete" asp-route-id="@item.DoctorId"
-                               title="Delete" class="btn btn-danger">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Person.Address.City)
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>*@
+                                            <!-- /.box-body
+
+                                            </div><!--/.direct-chat
+
+                                                                            </div>
+                                                                            </td>
+                                                                            </tr>-->
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        @*
+                            </div>
+                                                    </div>*@
+                    </section><!-- /.Left col -->
+                </div><!-- /.row (main row) -->
+                <!-- Main row -->
+            </section><!-- /.content -->
+        </div><!-- /.content-wrapper -->
     </div>
 </div>
+

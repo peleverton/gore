@@ -29,7 +29,7 @@ namespace Gore.Application.ViewModels
 
 
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [DisplayName("Data Nascimento")]
         public DateTime DateOfBirth { get; set; }
 

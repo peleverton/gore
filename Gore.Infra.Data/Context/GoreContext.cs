@@ -42,7 +42,7 @@ namespace Gore.Infra.Data.Context
 
             optionsBuilder.UseMySql(config.GetConnectionString("DefaultConnection"));
             //Desabilitar o carregamento preguiçoso.
-            //optionsBuilder.UseLazyLoadingProxies();
+            optionsBuilder.UseLazyLoadingProxies();
         }
     }
 }

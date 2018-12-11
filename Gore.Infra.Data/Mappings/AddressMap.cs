@@ -17,7 +17,7 @@ namespace Gore.Infra.Data.Mappings
                 .HasColumnType("int");
 
             builder.Property(p => p.Cep)
-                .HasColumnType("int");
+                .HasColumnType("varchar(50)");
 
             builder.Property(p => p.Complement)
                 .IsRequired(false)

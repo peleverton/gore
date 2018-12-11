@@ -96,6 +96,10 @@ body {
   color: #444;
   border-top: 1px solid #d2d6de;
 }
+.main-body {
+    width: 100%;
+    margin-left: -10px;
+}
 /* Fixed layout */
 .fixed .main-header,
 .fixed .main-sidebar,
@@ -1534,10 +1538,10 @@ a:focus {
   position: relative;
   border-radius: 3px;
   background: #ffffff;
-  border-top: 3px solid #d2d6de;
-  margin-bottom: 20px;
+  /*border-top: 3px solid #d2d6de;*/
+  margin-bottom: 5px;
   width: 100%;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);*/
 }
 .box.box-primary {
   border-top-color: #3c8dbc;
@@ -1725,7 +1729,7 @@ a:focus {
   color: #444;
   display: block;
   padding: 10px;
-  position: relative;
+  /*position: relative;*/
 }
 .box-header.with-border {
   border-bottom: 1px solid #f4f4f4;
@@ -4138,6 +4142,10 @@ table.text-center th {
   color: #444;
   border-color: #ddd;
   border-bottom-color: #ddd;
+}
+.title{
+    margin-top: 25px;
+    text-align:center;
 }
 .fc-button:hover,
 .fc-button:active,
