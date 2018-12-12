@@ -106,7 +106,8 @@ namespace Gore.UI.Site.Controllers
                             doctorViewModel.personViewModel.AddressView.Cep,
                             doctorViewModel.personViewModel.AddressView.Complement,
                             doctorViewModel.personViewModel.AddressView.City,
-                            doctorViewModel.personViewModel.AddressView.State
+                            doctorViewModel.personViewModel.AddressView.State,
+                            doctorViewModel.personViewModel.AddressView.Neighborhood
                         );
         }
     }

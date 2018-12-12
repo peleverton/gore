@@ -17,5 +17,7 @@ namespace Gore.Domain.Commands.Adress
         public string City { get; protected set; }
 
         public string State { get; protected set; }
+
+        public string Neighborhood { get; protected set; }
     }
 }

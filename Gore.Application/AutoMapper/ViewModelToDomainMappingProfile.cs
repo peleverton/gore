@@ -22,9 +22,9 @@ namespace Gore.Application.AutoMapper
                 .ConvertUsing(c => new UpdatePersonCommand(c.PersonId, c.FirstName, c.LastName, c.CPF, c.Email, c.DateOfBirth, c.Phone, c.Address, c.Gender, c.IsActive, c.BloodType.BloodTypeId));
 
             CreateMap<AddressViewModel, RegisterNewAdressCommand>()
-                .ConvertUsing(c => new RegisterNewAdressCommand(c.Street, c.Number, c.Cep, c.Complement, c.City, c.State));
+                .ConvertUsing(c => new RegisterNewAdressCommand(c.Street, c.Number, c.Cep, c.Complement, c.City, c.State, c.Neighborhood));
             CreateMap<AddressViewModel, UpdateAdressCommand>()
-                .ConvertUsing(c => new UpdateAdressCommand(c.AddressId, c.Street, c.Number, c.Cep, c.Complement, c.City, c.State));
+                .ConvertUsing(c => new UpdateAdressCommand(c.AddressId, c.Street, c.Number, c.Cep, c.Complement, c.City, c.State, c.Neighborhood));
 
             CreateMap<DoctorViewModel, RegisterNewDoctorCommand>()
                 .ConvertUsing(c => new RegisterNewDoctorCommand(c.DoctorId, c.CRM, c.Person));

@@ -4,7 +4,7 @@ namespace Gore.Domain.Commands.Adress
 {
     public class RegisterNewAdressCommand : AdressCommand
     {
-        public RegisterNewAdressCommand(string street, int number, string cep, string complement, string city, string state)
+        public RegisterNewAdressCommand(string street, int number, string cep, string complement, string city, string state, string neighborhood)
         {
             //AddressId = addressId;
             Street = street;
@@ -13,6 +13,7 @@ namespace Gore.Domain.Commands.Adress
             Complement = complement;
             City = city;
             State = state;
+            Neighborhood = neighborhood;
         }
 
         public override bool IsValid()

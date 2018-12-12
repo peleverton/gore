@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace Gore.Application.ViewModels
 {
     public class AddressViewModel
@@ -18,11 +17,7 @@ namespace Gore.Application.ViewModels
 
         public string State { get; set; }
 
-        public string Bairro { get; set; }
-                
-        //public override string ToString()
-        //{
-        //    return Convert.ToString(Cep) + "\n" + Street + "\n" + Bairro + "\n" + City + "\n" + State + "\n";
-        //}
+        public string Neighborhood { get; set; }
+       
     }
 }

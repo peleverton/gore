@@ -33,7 +33,7 @@ namespace Gore.Application.Services
                     ResultadoCep result = JsonConvert.DeserializeObject<ResultadoCep>(response.Content.ReadAsStringAsync().Result);
                     address = new AddressViewModel
                     {
-                        Bairro = result.Bairro,
+                        Neighborhood = result.Bairro,
                         Cep = result.Cep.Replace("-", ""),
                         City = result.Localidade,
                         Street = result.Logradouro,

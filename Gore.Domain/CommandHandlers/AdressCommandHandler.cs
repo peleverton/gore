@@ -33,12 +33,12 @@ namespace Gore.Domain.CommandHandlers
                 return Task.CompletedTask;
             }
 
-            var adress = new Address(message.Street, message.Number, message.Cep, message.Complement, message.City, message.State);
+            var adress = new Address(message.Street, message.Number, message.Cep, message.Complement, message.City, message.State, message.Neighborhood);
 
             _adressRepository.Add(adress);
 
             if (Commit())
-                Bus.RaiseEvent(new AdressRegisteredEvent(message.AddressId, message.Street, message.Number, message.Cep, message.Complement, message.City, message.State));
+                Bus.RaiseEvent(new AdressRegisteredEvent(message.AddressId, message.Street, message.Number, message.Cep, message.Complement, message.City, message.State, message.Neighborhood));
 
             return Task.CompletedTask;
         }
@@ -67,7 +67,7 @@ namespace Gore.Domain.CommandHandlers
                 return Task.CompletedTask;
             }
 
-            var adress = new Address(message.AddressId, message.Street, message.Number, message.Cep, message.Complement, message.City, message.State);
+            var adress = new Address(message.AddressId, message.Street, message.Number, message.Cep, message.Complement, message.City, message.State, message.Neighborhood);
 
             _adressRepository.Update(adress);
 

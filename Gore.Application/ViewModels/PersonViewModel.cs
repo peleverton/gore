@@ -40,11 +40,6 @@ namespace Gore.Application.ViewModels
         public virtual Gender Gender { get; set; }
         public bool IsActive { get; set; }
         public virtual BloodType BloodType { get; set; }
-        public int BloodTypeView { get; set; }
-
-        public PersonViewModel()
-        {
-
-        }
+        public int BloodTypeView { get; set; }       
     }
 }

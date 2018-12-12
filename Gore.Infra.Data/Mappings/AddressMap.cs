@@ -29,6 +29,9 @@ namespace Gore.Infra.Data.Mappings
             builder.Property(p => p.Street)
                .HasColumnType("varchar(100)");
 
+            builder.Property(p => p.Neighborhood)
+                .HasColumnType("varchar(100)");
+
             builder.ToTable("address");
         }
     }

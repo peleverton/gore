@@ -5,7 +5,7 @@ namespace Gore.Domain.Events.Adress
     public class AdressRegisteredEvent : Event
     {
        
-        public AdressRegisteredEvent(int? addressId, string street, int number, string cep, string complement, string city, string state)
+        public AdressRegisteredEvent(int? addressId, string street, int number, string cep, string complement, string city, string state, string neighborhood)
         {
             AddressId = addressId;
             Street = street;
@@ -14,6 +14,7 @@ namespace Gore.Domain.Events.Adress
             Complement = complement;
             City = city;
             State = state;
+            Neighborhood = neighborhood;
         }
 
        public int? AddressId { get; private set; }
@@ -29,5 +30,7 @@ namespace Gore.Domain.Events.Adress
         public string City { get; private set; }
 
         public string State { get; private set; }
+
+        public string Neighborhood { get; private set; }
     }
 }
